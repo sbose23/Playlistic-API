@@ -11,6 +11,7 @@ def makeTable():
     db.initializeTable()
     db.scanTable()
 
+
 def printUserPlaylists():
     response = db.getUserPlaylists("User1")
     print("-------------------------------------------\nPrinting playlists...\n")
@@ -18,3 +19,10 @@ def printUserPlaylists():
         print(str(playlist['playlistID']) + ": " + str(playlist['videos']))
     print("-------------------------------------------\nFinished printing playlists.\n")
 
+
+def printPlaylist():
+    response = db.getPlaylist("User0", "Playlist21")
+    if len(response['Items']) == 0:
+        print("No playlist exists. ")
+    else:
+        print("-------------------------------------------\nPlaylist: " + str(response['Items'][0]['videos']))

@@ -63,3 +63,12 @@ def getUserPlaylists(user):
     response = table.query(KeyConditionExpression=Key('userID').eq(user))
     print("Response: " + str(response))
     return response
+
+def getPlaylist(user, playlist):
+    """
+    Gets playlist given userID and playlistID
+    """
+
+    response = table.query(KeyConditionExpression=Key('userID').eq(user)&Key('playlistID').eq(playlist))
+    print("Response: " + str(response))
+    return response
