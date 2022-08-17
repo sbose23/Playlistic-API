@@ -34,7 +34,7 @@ def lambda_handler(event, context):
     
     #loop through Items and extract playlists with playlistID and corresponding videos list
     for playlist in response['Items']:
-        playlists[playlist['playlistID']] = playlist['videos']
+        playlists[playlist['playlistID'] + "-" + playlist['playlistName']] = playlist['videos']
 
     return {
         'statusCode': 200,
