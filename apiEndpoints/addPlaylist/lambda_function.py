@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     videos in string format seperated by a hyphen, and a name for the playlist.
     If a playlist with some userID and playlistID already exists it is overwritten.
     """
-    headers = event[headers]
+    headers = event['headers']
 
     #if required headers are present, add playlist to the table
     if 'userID' in headers and 'playlistID' in headers and 'playlistName' in headers and \
