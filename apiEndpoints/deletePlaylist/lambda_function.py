@@ -1,6 +1,5 @@
 import json
 import boto3
-from boto3.dynamodb.conditions import Key
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('playlistic-db')
@@ -26,7 +25,9 @@ def lambda_handler(event, context):
             'statusCode': 400,
             'body': json.dumps("Header 'playlistID' not present in request")
         }
+    
     table.delete_item(Key={'userID': userID, 'playlistID': playlistID})
+
     return {
         'statusCode': 200,
         'body': json.dumps("Playlist " + playlistID + " is no more")
