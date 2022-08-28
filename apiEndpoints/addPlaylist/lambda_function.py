@@ -19,7 +19,7 @@ def lambda_handler(event, context):
         #list object to convert string to list before adding to the table
         videos = []
         if len(headers['videosString']) > 0:
-            for video in headers['videosString'].split('-'):
+            for video in headers['videosString'].split('~'):
                 videos.append(video)
         
         #make playlist item and add it to the table
