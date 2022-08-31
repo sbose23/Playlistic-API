@@ -8,6 +8,8 @@ When an endpoint of this API is called, the API Gateway first checks that there 
 
 The Lambda functions use the boto3 AWS SDK for calling a DynamoDB instance. 
 
+# The DynamoDB database
+
 The database schema is structured as follows:
 
 * Partition (hash) key: userID
